@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PricingCard from '@/components/PricingCard';
@@ -11,6 +12,13 @@ import FAQAccordion from '@/components/FAQAccordion';
 import CTABanner from '@/components/CTABanner';
 import FreeTrialModal from '@/components/FreeTrialModal';
 import styles from './page.module.css';
+
+// Hero carousel images
+const heroImages = [
+  '/images/hero-1.png',
+  '/images/hero-2.png',
+  '/images/hero-3.png',
+];
 
 // Data
 const pricingPlans = [
@@ -116,28 +124,28 @@ const trainers = [
     title: 'Head Strength Coach',
     specialties: ['Powerlifting', 'Bodybuilding', 'Nutrition'],
     experience: '12+ Years',
-    image: '/images/trainer-1.jpg',
+    image: '/images/trainer-1.png',
   },
   {
     name: 'Sarah Williams',
     title: 'HIIT & Cardio Specialist',
     specialties: ['HIIT', 'Weight Loss', 'Endurance'],
     experience: '8+ Years',
-    image: '/images/trainer-2.jpg',
+    image: '/images/trainer-2.png',
   },
   {
     name: 'David Kumar',
     title: 'Yoga & Wellness Expert',
     specialties: ['Yoga', 'Meditation', 'Flexibility'],
     experience: '10+ Years',
-    image: '/images/trainer-3.jpg',
+    image: '/images/trainer-3.png',
   },
   {
     name: 'Emma Rodriguez',
     title: 'Functional Fitness Coach',
     specialties: ['CrossFit', 'Mobility', 'Rehabilitation'],
     experience: '6+ Years',
-    image: '/images/trainer-4.jpg',
+    image: '/images/trainer-4.png',
   },
 ];
 
@@ -220,12 +228,12 @@ const trustBadges = [
 ];
 
 const facilities = [
-  { name: 'Weights Area', image: '/images/facility-weights.jpg' },
-  { name: 'Cardio Zone', image: '/images/facility-cardio.jpg' },
-  { name: 'Fitness Studio', image: '/images/facility-studio.jpg' },
-  { name: 'Locker Rooms', image: '/images/facility-lockers.jpg' },
-  { name: 'Reception', image: '/images/facility-reception.jpg' },
-  { name: 'Stretching Zone', image: '/images/facility-stretch.jpg' },
+  { name: 'Weights Area', image: '/images/facility-weights.png' },
+  { name: 'Cardio Zone', image: '/images/facility-cardio.png' },
+  { name: 'Fitness Studio', image: '/images/facility-studio.png' },
+  { name: 'Locker Rooms', image: '/images/facility-lockers.png' },
+  { name: 'Reception', image: '/images/facility-reception.png' },
+  { name: 'Stretching Zone', image: '/images/facility-stretch.png' },
 ];
 
 const schedule = [
@@ -239,24 +247,60 @@ const schedule = [
 export default function Home() {
   const [isAnnual, setIsAnnual] = useState(false);
   const [isFreeTrialOpen, setIsFreeTrialOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Auto-slide hero carousel
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <>
       <Navbar onJoinClick={() => setIsFreeTrialOpen(true)} />
 
       <main>
-        {/* Hero Section */}
+        {/* Hero Section with Carousel */}
         <section className={styles.hero}>
-          <div className={styles.heroBackground}>
+          <div className={styles.heroCarousel}>
+            {heroImages.map((img, index) => (
+              <div
+                key={index}
+                className={`${styles.heroSlide} ${index === currentSlide ? styles.active : ''}`}
+              >
+                <Image
+                  src={img}
+                  alt={`Gym atmosphere ${index + 1}`}
+                  fill
+                  className={styles.heroImage}
+                  priority={index === 0}
+                />
+              </div>
+            ))}
             <div className={styles.heroOverlay}></div>
           </div>
+
+          {/* Carousel Dots */}
+          <div className={styles.carouselDots}>
+            {heroImages.map((_, index) => (
+              <button
+                key={index}
+                className={`${styles.dot} ${index === currentSlide ? styles.activeDot : ''}`}
+                onClick={() => setCurrentSlide(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+
           <div className={styles.heroContent}>
             <span className={styles.heroBadge}>🔥 #1 Gym in Trincomalee</span>
             <h1 className={styles.heroTitle}>
               Build Your Best Body at <span>Iron Pulse Fitness</span>
             </h1>
             <p className={styles.heroSubtitle}>
-              Results-driven training with certified coaches,modern equipment, and personalized programs for strength, cardio, and functional fitness.
+              Results-driven training with certified coaches, modern equipment, and personalized programs for strength, cardio, and functional fitness.
             </p>
             <div className={styles.heroButtons}>
               <button className={styles.heroPrimary} onClick={() => setIsFreeTrialOpen(true)}>
@@ -440,9 +484,13 @@ export default function Home() {
             <div className={styles.facilitiesGrid}>
               {facilities.map((facility, index) => (
                 <div key={index} className={styles.facilityCard}>
-                  <div className={styles.facilityPlaceholder}>
-                    <span className={styles.facilityIcon}>🏋️</span>
-                  </div>
+                  <Image
+                    src={facility.image}
+                    alt={facility.name}
+                    fill
+                    className={styles.facilityImage}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                   <span className={styles.facilityName}>{facility.name}</span>
                 </div>
               ))}
@@ -471,7 +519,7 @@ export default function Home() {
           onButtonClick={() => setIsFreeTrialOpen(true)}
           variant="gradient"
         />
-      </main>
+      </main >
 
       <Footer />
 
