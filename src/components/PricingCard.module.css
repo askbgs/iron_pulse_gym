@@ -1,0 +1,165 @@
+.card {
+    position: relative;
+    background: linear-gradient(145deg, #1a1a1a 0%, #111 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card.popular {
+    border-color: var(--color-primary);
+    background: linear-gradient(145deg, #1f1612 0%, #111 100%);
+    box-shadow: 0 0 40px rgba(255, 69, 0, 0.15);
+}
+
+.badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: linear-gradient(135deg, #ff4500 0%, #ff6a33 100%);
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.header {
+    text-align: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 1.5rem;
+}
+
+.planName {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+}
+
+.popular .planName {
+    color: var(--color-primary);
+}
+
+.pricing {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.currency {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    margin-top: 0.25rem;
+}
+
+.price {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    line-height: 1;
+    color: #fff;
+}
+
+.period {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    align-self: flex-end;
+    margin-bottom: 0.5rem;
+}
+
+.savings {
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+    font-weight: 500;
+}
+
+.features {
+    list-style: none;
+    flex: 1;
+    margin-bottom: 2rem;
+}
+
+.feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.feature:last-child {
+    border-bottom: none;
+}
+
+.checkIcon {
+    color: var(--color-secondary);
+    font-weight: bold;
+    font-size: 0.875rem;
+}
+
+.ctaBtn {
+    width: 100%;
+    padding: 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ctaBtn.primary {
+    color: #fff;
+    background: linear-gradient(135deg, #ff4500 0%, #ff6a33 100%);
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.3);
+}
+
+.ctaBtn.primary:hover {
+    box-shadow: 0 0 30px rgba(255, 69, 0, 0.5);
+    transform: translateY(-2px);
+}
+
+.ctaBtn.secondary {
+    color: #fff;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.ctaBtn.secondary:hover {
+    border-color: var(--color-primary);
+    background: rgba(255, 69, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .card {
+        padding: 1.5rem;
+    }
+
+    .price {
+        font-size: 3rem;
+    }
+}

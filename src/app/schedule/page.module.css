@@ -1,0 +1,236 @@
+.main {
+    padding-top: 80px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section {
+    padding: 3rem 0 5rem;
+}
+
+/* Hero */
+.hero {
+    padding: 4rem 0 2rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(255, 69, 0, 0.05) 0%, transparent 100%);
+}
+
+.heroTitle {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.heroTitle span {
+    color: var(--color-primary);
+}
+
+.heroSubtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Day Tabs */
+.dayTabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.dayTab {
+    flex: 1;
+    min-width: 80px;
+    padding: 1rem 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dayTab:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-secondary);
+}
+
+.dayTab.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+    font-weight: 600;
+}
+
+.dayFull {
+    display: block;
+}
+
+.dayShort {
+    display: none;
+}
+
+/* Schedule List */
+.scheduleList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+}
+
+.scheduleItem {
+    display: grid;
+    grid-template-columns: 140px 1fr auto;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(145deg, #1a1a1a 0%, #111 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.scheduleItem:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
+}
+
+.itemTime {
+    display: flex;
+    flex-direction: column;
+}
+
+.time {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.duration {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.itemClass {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    border-left: 3px solid var(--class-color);
+}
+
+.className {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.trainer {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.bookBtn {
+    padding: 0.625rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #fff;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.bookBtn:hover {
+    border-color: var(--color-primary);
+    background: rgba(255, 69, 0, 0.1);
+    color: var(--color-primary);
+}
+
+/* Legend */
+.legend {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.legendTitle {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+}
+
+.legendItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+.legendDot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dayFull {
+        display: none;
+    }
+
+    .dayShort {
+        display: block;
+    }
+
+    .dayTab {
+        min-width: 50px;
+        padding: 0.75rem 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .scheduleItem {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .itemTime {
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .itemClass {
+        border-left: none;
+        padding-left: 0;
+        border-top: 3px solid var(--class-color);
+        padding-top: 0.75rem;
+    }
+
+    .bookBtn {
+        width: 100%;
+    }
+}

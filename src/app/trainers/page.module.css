@@ -1,0 +1,242 @@
+.main {
+    padding-top: 80px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section {
+    padding: 3rem 0 5rem;
+}
+
+/* Hero */
+.hero {
+    padding: 4rem 0 2rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(255, 69, 0, 0.05) 0%, transparent 100%);
+}
+
+.heroTitle {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.heroTitle span {
+    color: var(--color-primary);
+}
+
+.heroSubtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Trainers List */
+.trainersList {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.trainerCard {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    background: linear-gradient(145deg, #1a1a1a 0%, #111 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.trainerCard:hover {
+    border-color: rgba(255, 69, 0, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.trainerCard:nth-child(even) {
+    direction: rtl;
+}
+
+.trainerCard:nth-child(even)>* {
+    direction: ltr;
+}
+
+.trainerImage {
+    position: relative;
+    aspect-ratio: 3/4;
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.imagePlaceholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    opacity: 0.2;
+}
+
+.image {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.trainerCard:hover .image {
+    transform: scale(1.05);
+}
+
+.trainerContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.trainerName {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    letter-spacing: 0.03em;
+    color: #fff;
+    margin-bottom: 0.25rem;
+}
+
+.trainerTitle {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.trainerExp {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.trainerBio {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.subTitle {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.specialties,
+.certifications,
+.achievements {
+    margin-bottom: 1.25rem;
+}
+
+.tagList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    padding: 0.375rem 0.875rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+}
+
+.certList,
+.achieveList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.certList li,
+.achieveList li {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.certList li {
+    color: var(--color-secondary);
+}
+
+.bookBtn {
+    margin-top: auto;
+    padding: 1rem 2rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: linear-gradient(135deg, #ff4500 0%, #ff6a33 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.3);
+    align-self: flex-start;
+}
+
+.bookBtn:hover {
+    box-shadow: 0 0 30px rgba(255, 69, 0, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .trainerCard {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .trainerCard:nth-child(even) {
+        direction: ltr;
+    }
+
+    .trainerImage {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .trainerContent {
+        text-align: center;
+    }
+
+    .tagList {
+        justify-content: center;
+    }
+
+    .certList,
+    .achieveList {
+        align-items: center;
+    }
+
+    .bookBtn {
+        align-self: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .trainerCard {
+        padding: 1.5rem;
+    }
+
+    .trainerName {
+        font-size: 2rem;
+    }
+}

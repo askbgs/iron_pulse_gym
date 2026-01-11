@@ -1,0 +1,207 @@
+.main {
+    padding-top: 80px;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section {
+    padding: 5rem 0;
+}
+
+.bgDark {
+    background: var(--color-bg-secondary);
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionTitle {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.sectionTitle span {
+    color: var(--color-primary);
+}
+
+.sectionSubtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Hero */
+.hero {
+    padding: 4rem 0 2rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(255, 69, 0, 0.05) 0%, transparent 100%);
+}
+
+.heroTitle {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.heroTitle span {
+    color: var(--color-primary);
+}
+
+.heroSubtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Pricing Toggle */
+.pricingToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.pricingToggle span {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    transition: color 0.2s ease;
+}
+
+.pricingToggle span.active {
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+.toggleSwitch {
+    position: relative;
+    width: 56px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+}
+
+.toggleKnob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+}
+
+.toggleKnob.annual {
+    transform: translateX(28px);
+}
+
+.saveBadge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    background: var(--color-secondary);
+    color: var(--color-bg-primary);
+    border-radius: 10px;
+    margin-left: 0.5rem;
+    font-weight: 700;
+}
+
+/* Pricing Grid */
+.pricingGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Comparison Table */
+.tableWrapper {
+    overflow-x: auto;
+}
+
+.comparisonTable {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+}
+
+.comparisonTable th,
+.comparisonTable td {
+    padding: 1rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.comparisonTable th {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--color-text-secondary);
+    padding-bottom: 1.5rem;
+}
+
+.comparisonTable td {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+}
+
+.featureCell {
+    text-align: left !important;
+    font-weight: 500;
+    color: var(--color-text-secondary) !important;
+}
+
+.popularCol {
+    background: rgba(255, 69, 0, 0.05);
+    color: var(--color-primary) !important;
+}
+
+.comparisonTable th.popularCol {
+    position: relative;
+    color: var(--color-primary) !important;
+}
+
+.comparisonTable th.popularCol::before {
+    content: 'Most Popular';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+    background: var(--color-primary);
+    color: #fff;
+    border-radius: 10px;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .pricingGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .pricingGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+}

@@ -1,0 +1,523 @@
+/* Container */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section {
+    padding: 6rem 0;
+}
+
+.bgDark {
+    background: var(--color-bg-secondary);
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.sectionTitle {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.sectionTitle span {
+    color: var(--color-primary);
+}
+
+.sectionSubtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ======== HERO SECTION ======== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 1.5rem 4rem;
+    overflow: hidden;
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1a0a00 0%, #0a0a0a 50%, #0a0a0a 100%);
+}
+
+.heroBackground::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff4500' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 20%, rgba(255, 69, 0, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(57, 255, 20, 0.05) 0%, transparent 40%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.heroBadge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(255, 69, 0, 0.1);
+    border: 1px solid rgba(255, 69, 0, 0.3);
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.heroTitle span {
+    display: block;
+    color: var(--color-primary);
+}
+
+.heroSubtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    max-width: 650px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+}
+
+.heroButtons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+}
+
+.heroPrimary {
+    padding: 1rem 2.5rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: linear-gradient(135deg, #ff4500 0%, #ff6a33 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px rgba(255, 69, 0, 0.4);
+}
+
+.heroPrimary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 50px rgba(255, 69, 0, 0.6);
+}
+
+.heroSecondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.heroSecondary:hover {
+    border-color: var(--color-primary);
+    background: rgba(255, 69, 0, 0.1);
+    color: var(--color-primary);
+}
+
+.heroStats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.heroStat {
+    text-align: center;
+}
+
+.statNumber {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 0.25rem;
+}
+
+.statLabel {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ======== TRUST BAR ======== */
+.trustBar {
+    background: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+    padding: 3rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.trustGrid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem 4rem;
+}
+
+.trustItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.trustIcon {
+    font-size: 1.5rem;
+}
+
+.trustLabel {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* ======== PRICING TOGGLE ======== */
+.pricingToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.pricingToggle span {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    transition: color 0.2s ease;
+}
+
+.pricingToggle span.active {
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+.toggleSwitch {
+    position: relative;
+    width: 56px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.toggleSwitch:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.toggleKnob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+}
+
+.toggleKnob.annual {
+    transform: translateX(28px);
+}
+
+.saveBadge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    background: var(--color-secondary);
+    color: var(--color-bg-primary);
+    border-radius: 10px;
+    margin-left: 0.5rem;
+    font-weight: 700;
+}
+
+/* ======== GRIDS ======== */
+.pricingGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.classesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.trainersGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.testimonialsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.facilitiesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+/* ======== SCHEDULE ======== */
+.scheduleWrapper {
+    overflow-x: auto;
+    margin-bottom: 2rem;
+}
+
+.scheduleTable {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+}
+
+.scheduleTable th,
+.scheduleTable td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.scheduleTable th {
+    background: rgba(255, 255, 255, 0.03);
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--color-text-secondary);
+}
+
+.scheduleTable td {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.timeCell {
+    font-weight: 600;
+    color: var(--color-text-secondary) !important;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.classCell {
+    color: var(--color-primary) !important;
+    font-weight: 500;
+    background: rgba(255, 69, 0, 0.05);
+}
+
+.scheduleNote {
+    text-align: center;
+}
+
+.viewFullSchedule {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+}
+
+.viewFullSchedule:hover {
+    color: var(--color-primary-light);
+}
+
+/* ======== FACILITIES ======== */
+.facilityCard {
+    position: relative;
+    aspect-ratio: 4/3;
+    background: linear-gradient(145deg, #1a1a1a 0%, #111 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.facilityCard:hover {
+    transform: scale(1.02);
+    border-color: rgba(255, 69, 0, 0.3);
+}
+
+.facilityPlaceholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.facilityIcon {
+    font-size: 3rem;
+    opacity: 0.3;
+}
+
+.facilityName {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 1200px) {
+    .trainersGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .pricingGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .classesGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonialsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 4rem 0;
+    }
+
+    .sectionHeader {
+        margin-bottom: 3rem;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 7rem 1.5rem 3rem;
+    }
+
+    .heroStats {
+        gap: 2rem;
+    }
+
+    .statNumber {
+        font-size: 2rem;
+    }
+
+    .pricingGrid,
+    .classesGrid,
+    .trainersGrid,
+    .testimonialsGrid,
+    .facilitiesGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .trustGrid {
+        gap: 1.5rem 2rem;
+    }
+
+    .trustItem {
+        flex-basis: calc(50% - 1rem);
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .heroTitle {
+        font-size: 2.25rem;
+    }
+
+    .heroSubtitle {
+        font-size: 1rem;
+    }
+
+    .heroButtons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .heroPrimary,
+    .heroSecondary {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    .heroStats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .pricingToggle {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+}
